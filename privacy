@@ -1,91 +1,41 @@
-# Privacy Policy for Sunny-side
+# Privacy Policy for Sunnyside
 
-**Effective Date:** July 29, 2025  
-**Last Updated:** July 29, 2025
+**Effective date:** October 21, 2026
 
-## Introduction
+## Summary
 
-Saturn Ventures ("we," "our," or "us") operates the Sunny-side mobile application (the "Service"). This privacy policy explains how we collect, use, and protect your information when you use our Service.
+Sunnyside works out which side of a bus, train, car, ferry or plane will be in the shade. Everything is computed on your phone. Sunnyside has no accounts, no analytics, no advertising and no servers of its own.
 
-## Information We Collect
+## What the app uses
 
-### Location Information
-- **Device Location**: We access your device's GPS location to calculate sun position and provide seating recommendations
-- **Address Information**: When you enter departure and destination addresses, we use them for journey planning
-- **Usage**: Location data is used only for sun calculations and is not stored permanently
+### Your location (optional)
+If you allow it, Sunnyside reads your device location once per launch to fill in your starting point. The coordinate is used only for the on-device sun calculation. It is not stored after you close the app and it is never sent to us.
 
-### Information We Don't Collect
-- **No Personal Data**: We do not collect names, emails, phone numbers, or other personal identifiers
-- **No Account Required**: Our app works without registration or login
-- **No Tracking**: We do not track your usage patterns or behavior
-- **No Advertising Data**: We do not collect data for advertising purposes
+If you decline, you can type a starting point instead. Nothing else changes.
 
-## How We Use Information
+### Places you type
+When you search for a place, the text you type is sent to Apple Maps (MapKit) to suggest addresses and to convert a chosen place into coordinates. This happens through Apple's own services under Apple's privacy policy (https://www.apple.com/legal/privacy/). Sunnyside does not add any identifier to these requests.
 
-### Primary Functions
-- Calculate sun position based on your location and time
-- Provide seating recommendations to avoid direct sunlight
-- Convert addresses to coordinates for journey planning
-- Determine local time zones for accurate calculations
+### Trips you save
+If a future version lets you save trips, they are stored only on your device (and in your iCloud backup if you have backups enabled). We cannot read them.
 
-### External Services
-We use the following free services to provide our functionality:
-- **Nominatim/Photon**: For address geocoding (converting addresses to coordinates)
-- **BigDataCloud/TimeZoneDB**: For timezone and local time information
+## What we do not do
 
-## Data Storage and Security
+- We do not collect names, email addresses, phone numbers or identifiers.
+- We do not track you across apps or websites.
+- We do not use analytics or crash-reporting SDKs.
+- We do not show ads.
+- We do not sell or share any data, because we do not hold any.
 
-- **Local Processing**: Most calculations are performed locally on your device
-- **No Cloud Storage**: We do not store your location data or search history in the cloud
-- **Temporary Data**: Location and address data are used temporarily for calculations only
-- **Secure Transmission**: API requests to external services use secure HTTPS connections
+## Children
 
-## Third-Party Services
+Sunnyside is not directed at children under 13 and collects no personal information from anyone.
 
-Our app integrates with external geocoding and timezone services. These services have their own privacy policies:
-- Nominatim (OpenStreetMap Foundation)
-- Photon (OpenStreetMap)
-- BigDataCloud
-- TimeZoneDB
+## Changes
 
-We recommend reviewing their privacy policies for information about how they handle location data.
+If this policy changes, the new version will be published at the same address with a new effective date.
 
-## Your Rights and Choices
+## Contact
 
-- **Location Permissions**: You can disable location access in your device settings at any time
-- **Data Deletion**: Since we don't store personal data, there's no data to delete
-- **App Removal**: Uninstalling the app removes all local data
-
-## Children's Privacy
-
-Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13.
-
-## Changes to Privacy Policy
-
-We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
-
-## International Users
-
-Our app is available worldwide. Location data processing occurs locally on your device, with minimal data sent to geocoding services for address conversion.
-
-## Contact Information
-
-If you have questions about this Privacy Policy, please contact us:
-
-- **Email**: ydordek@gmail.com
-- **GitHub**: https://github.com/DiddyC/sunnyside
-
-## Data Protection Rights
-
-Depending on your location, you may have rights regarding your personal information:
-- Right to access, update, or delete your information
-- Right to restrict processing
-- Right to data portability
-- Right to withdraw consent
-
-Since our app processes minimal data locally, most of these rights are automatically preserved through the app's design.
-
----
-
-**Saturn Ventures**  
-Copyright © 2025 Saturn Ventures. All rights reserved. 
+Questions: ydordek@gmail.com
+Source: https://github.com/DiddyC/sunnyside

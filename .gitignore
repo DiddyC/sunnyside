@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Secrets / local config
+Secrets.xcconfig
+*.local.xcconfig
+.claude/settings.local.json
+
+# Legacy prototype artefacts
+old/sunnyside_v2/__pycache__/
+old/sunnyside_v2/.ipynb_checkpoints/
+old/sunnyside_v2/wheels/

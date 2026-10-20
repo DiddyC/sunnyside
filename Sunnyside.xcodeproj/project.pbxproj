@@ -1,0 +1,630 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		12F68199FB3B1B6FEFE5F4C9 /* JourneyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703CC3B0EB087589C6A3241A /* JourneyInputView.swift */; };
+		200CE871CF4DC07E96FF9055 /* SwitchReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BAA1797B7ECE07B6F6969B /* SwitchReminder.swift */; };
+		27D7AD902C549569C983BD2B /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F051D0FBF913462DC090E4 /* ResultViewModel.swift */; };
+		2C870CC87E875A5C7B409161 /* SeatEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B33F42153DFD377A93C68C3 /* SeatEngine.swift */; };
+		2DC13BE5DF3EF3177CDF61B0 /* SeatEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282FF5C1D71F3C75A9F8BDE4 /* SeatEngineTests.swift */; };
+		385A6ED48DD2C99AEFA198FC /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FF61112FD8D3AD198465A2 /* Journey.swift */; };
+		43B0346911CDF3E53023FC4E /* SunCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8985291B0942BAD1B822CDA /* SunCalculator.swift */; };
+		4E074116C0F3654C2F92B9D9 /* SunCompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45BA0D1B4228E340AE8B639 /* SunCompassView.swift */; };
+		54D897C095B73B3D7C79B6A3 /* RouteStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCA87402FFBB74A65A169B /* RouteStripView.swift */; };
+		6387279FD1ACF7745DA6EEB9 /* VehiclePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5270E58C1F3B5F375ACEC83C /* VehiclePicker.swift */; };
+		66301286511D8A3FE63ECC82 /* SunnysideApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CC40044B531BABABC31E20 /* SunnysideApp.swift */; };
+		6EF6A68FAEBE483AA544376D /* DurationPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9552050AD91539952DC4C4B7 /* DurationPickerSheet.swift */; };
+		6F6F0DE406BC8DD60A6AAED3 /* PlaceSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B92DAEEACA5553F13E26AD /* PlaceSearch.swift */; };
+		7705D15A92A9ECFCB4DC2C21 /* SeatMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B59535F0B8E3CE9CF925DD /* SeatMapView.swift */; };
+		899D04243495D165F55D8A21 /* SunSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1761A1EE56A2D24ABC310C19 /* SunSample.swift */; };
+		8C644B77FAA590B94890524D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75EFB06326E36730EE67F04E /* Assets.xcassets */; };
+		8FC4E58D90C431326EEDF359 /* GeoCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A20C2513221AEC90B2F8 /* GeoCalculator.swift */; };
+		96FCB28D279867879A782BE9 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED0970A9B4E2ED792D312B8 /* AppFonts.swift */; };
+		98A01EE165CD5C1FEEA00152 /* SeatRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E0F030C43733031C8F0FEA /* SeatRecommendation.swift */; };
+		A06493BFFE2C19F2029CA8D7 /* JourneyInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA8A3FD4281E28B1D3077B /* JourneyInputViewModel.swift */; };
+		A137D3831859C598215AA6C3 /* VehicleSilhouette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C36E2A7348051ED8FF43007 /* VehicleSilhouette.swift */; };
+		AF2B45EF3DD54602ABEE2672 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964FAF5F1E3E0B3796EC17D0 /* Vehicle.swift */; };
+		B04EB046C60DE44F37CB88EF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDE66254C0EBF6A23872480 /* SettingsView.swift */; };
+		B0A9AAA9F6B3ECB5954CDD7A /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4BE71F24DDC49D373C11CD /* Appearance.swift */; };
+		B64474E955FA1AA9FE313C8B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 711FA1D1F24A072318C1276E /* PrivacyInfo.xcprivacy */; };
+		BDC4743DD114B73DE07EEDFA /* PlaceSearchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C7AA5B414FF60856351ADA /* PlaceSearchSheet.swift */; };
+		CA9D4B5713E20C9E7605C8CA /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEEF11FD30F0E87D9240323 /* AppTheme.swift */; };
+		E83875A61923A2CC50E6AC9F /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD2DD492018E71AF5647373 /* AppColors.swift */; };
+		EBB0E518259866C710D7580E /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0349A3FFAF358A695D04D8 /* ResultView.swift */; };
+		FA532401628121175D651C3D /* SunCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA707F8A5C063BD4EE37F369 /* SunCalculatorTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7B8EA79678395E09520D514B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1093A1C270017A69F794A10 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F022273C46B5B1DCDE103B9;
+			remoteInfo = Sunnyside;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0C36E2A7348051ED8FF43007 /* VehicleSilhouette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSilhouette.swift; sourceTree = "<group>"; };
+		14B59535F0B8E3CE9CF925DD /* SeatMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatMapView.swift; sourceTree = "<group>"; };
+		15B92DAEEACA5553F13E26AD /* PlaceSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearch.swift; sourceTree = "<group>"; };
+		1761A1EE56A2D24ABC310C19 /* SunSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunSample.swift; sourceTree = "<group>"; };
+		282FF5C1D71F3C75A9F8BDE4 /* SeatEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatEngineTests.swift; sourceTree = "<group>"; };
+		2CD2DD492018E71AF5647373 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		30DCA87402FFBB74A65A169B /* RouteStripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStripView.swift; sourceTree = "<group>"; };
+		4BDE66254C0EBF6A23872480 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5270E58C1F3B5F375ACEC83C /* VehiclePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePicker.swift; sourceTree = "<group>"; };
+		6B33F42153DFD377A93C68C3 /* SeatEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatEngine.swift; sourceTree = "<group>"; };
+		703CC3B0EB087589C6A3241A /* JourneyInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyInputView.swift; sourceTree = "<group>"; };
+		70C7AA5B414FF60856351ADA /* PlaceSearchSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchSheet.swift; sourceTree = "<group>"; };
+		711FA1D1F24A072318C1276E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		75EFB06326E36730EE67F04E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B0349A3FFAF358A695D04D8 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		827B3B210787A5A6CEB02387 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		85705AD674FA7489D6EE6753 /* Sunnyside.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Sunnyside.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9552050AD91539952DC4C4B7 /* DurationPickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationPickerSheet.swift; sourceTree = "<group>"; };
+		964FAF5F1E3E0B3796EC17D0 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		96ECB94DF32D9245D3CB1781 /* SunnysideTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SunnysideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ED0970A9B4E2ED792D312B8 /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		A0BA8A3FD4281E28B1D3077B /* JourneyInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyInputViewModel.swift; sourceTree = "<group>"; };
+		A6F051D0FBF913462DC090E4 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		AAEEF11FD30F0E87D9240323 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		AD4BE71F24DDC49D373C11CD /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		B0E0F030C43733031C8F0FEA /* SeatRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatRecommendation.swift; sourceTree = "<group>"; };
+		B8985291B0942BAD1B822CDA /* SunCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCalculator.swift; sourceTree = "<group>"; };
+		D4FF61112FD8D3AD198465A2 /* Journey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
+		DAD5A20C2513221AEC90B2F8 /* GeoCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCalculator.swift; sourceTree = "<group>"; };
+		E45BA0D1B4228E340AE8B639 /* SunCompassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCompassView.swift; sourceTree = "<group>"; };
+		F2BAA1797B7ECE07B6F6969B /* SwitchReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchReminder.swift; sourceTree = "<group>"; };
+		F7CC40044B531BABABC31E20 /* SunnysideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunnysideApp.swift; sourceTree = "<group>"; };
+		FA707F8A5C063BD4EE37F369 /* SunCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCalculatorTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1B6B0485061FD135FD8164F5 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				2CD2DD492018E71AF5647373 /* AppColors.swift */,
+				AD4BE71F24DDC49D373C11CD /* Appearance.swift */,
+				9ED0970A9B4E2ED792D312B8 /* AppFonts.swift */,
+				AAEEF11FD30F0E87D9240323 /* AppTheme.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		27515E713575160C31C75AF3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				292AF165369FFAC367A084B4 /* Engine */,
+				379EFF703B4519C92C192AA8 /* Geo */,
+				5AE670E8305606CFA9A36059 /* Models */,
+				B402ADA3E53D9CFB36C16689 /* Sun */,
+				B05B93C3B272608FA1209EBC /* Vehicle */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		292AF165369FFAC367A084B4 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				6B33F42153DFD377A93C68C3 /* SeatEngine.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		2B095B65CB27D04D72ABC992 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				75EFB06326E36730EE67F04E /* Assets.xcassets */,
+				711FA1D1F24A072318C1276E /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2CFDD31520E9B0FCE1DDA55D = {
+			isa = PBXGroup;
+			children = (
+				C2F6968E4ABC52D8D3B45D1E /* Sunnyside */,
+				69E527F0B4EA06FA9001710C /* SunnysideTests */,
+				9EA1787A757A25AB7F50ADC3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		379EFF703B4519C92C192AA8 /* Geo */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5A20C2513221AEC90B2F8 /* GeoCalculator.swift */,
+				15B92DAEEACA5553F13E26AD /* PlaceSearch.swift */,
+			);
+			path = Geo;
+			sourceTree = "<group>";
+		};
+		57071F1A884BF561DBD4E7AF /* Journey */ = {
+			isa = PBXGroup;
+			children = (
+				9552050AD91539952DC4C4B7 /* DurationPickerSheet.swift */,
+				703CC3B0EB087589C6A3241A /* JourneyInputView.swift */,
+				A0BA8A3FD4281E28B1D3077B /* JourneyInputViewModel.swift */,
+				70C7AA5B414FF60856351ADA /* PlaceSearchSheet.swift */,
+				5270E58C1F3B5F375ACEC83C /* VehiclePicker.swift */,
+			);
+			path = Journey;
+			sourceTree = "<group>";
+		};
+		5AE670E8305606CFA9A36059 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4FF61112FD8D3AD198465A2 /* Journey.swift */,
+				B0E0F030C43733031C8F0FEA /* SeatRecommendation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		69E527F0B4EA06FA9001710C /* SunnysideTests */ = {
+			isa = PBXGroup;
+			children = (
+				282FF5C1D71F3C75A9F8BDE4 /* SeatEngineTests.swift */,
+				FA707F8A5C063BD4EE37F369 /* SunCalculatorTests.swift */,
+			);
+			path = SunnysideTests;
+			sourceTree = "<group>";
+		};
+		7172243C875DB18758A632CD /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				57071F1A884BF561DBD4E7AF /* Journey */,
+				B3A34C52FF5BB6A1CDB07621 /* Result */,
+				B5D49D2A16A3FB1A69E50605 /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		9EA1787A757A25AB7F50ADC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85705AD674FA7489D6EE6753 /* Sunnyside.app */,
+				96ECB94DF32D9245D3CB1781 /* SunnysideTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B05B93C3B272608FA1209EBC /* Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				964FAF5F1E3E0B3796EC17D0 /* Vehicle.swift */,
+			);
+			path = Vehicle;
+			sourceTree = "<group>";
+		};
+		B3A34C52FF5BB6A1CDB07621 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				7B0349A3FFAF358A695D04D8 /* ResultView.swift */,
+				A6F051D0FBF913462DC090E4 /* ResultViewModel.swift */,
+				30DCA87402FFBB74A65A169B /* RouteStripView.swift */,
+				14B59535F0B8E3CE9CF925DD /* SeatMapView.swift */,
+				E45BA0D1B4228E340AE8B639 /* SunCompassView.swift */,
+				F2BAA1797B7ECE07B6F6969B /* SwitchReminder.swift */,
+				0C36E2A7348051ED8FF43007 /* VehicleSilhouette.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		B402ADA3E53D9CFB36C16689 /* Sun */ = {
+			isa = PBXGroup;
+			children = (
+				B8985291B0942BAD1B822CDA /* SunCalculator.swift */,
+				1761A1EE56A2D24ABC310C19 /* SunSample.swift */,
+			);
+			path = Sun;
+			sourceTree = "<group>";
+		};
+		B5D49D2A16A3FB1A69E50605 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4BDE66254C0EBF6A23872480 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C2F6968E4ABC52D8D3B45D1E /* Sunnyside */ = {
+			isa = PBXGroup;
+			children = (
+				827B3B210787A5A6CEB02387 /* Info.plist */,
+				F7CC40044B531BABABC31E20 /* SunnysideApp.swift */,
+				27515E713575160C31C75AF3 /* Core */,
+				1B6B0485061FD135FD8164F5 /* Design */,
+				7172243C875DB18758A632CD /* Features */,
+				2B095B65CB27D04D72ABC992 /* Resources */,
+			);
+			path = Sunnyside;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22B61BCB297D527C059575AA /* SunnysideTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A44776AE99102C9ED7EC301 /* Build configuration list for PBXNativeTarget "SunnysideTests" */;
+			buildPhases = (
+				0BC0DBB9670A0DEF6BB46121 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6945B3603D28BED0E29479BB /* PBXTargetDependency */,
+			);
+			name = SunnysideTests;
+			packageProductDependencies = (
+			);
+			productName = SunnysideTests;
+			productReference = 96ECB94DF32D9245D3CB1781 /* SunnysideTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2F022273C46B5B1DCDE103B9 /* Sunnyside */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6385326E5134DEBEDF563DC2 /* Build configuration list for PBXNativeTarget "Sunnyside" */;
+			buildPhases = (
+				C8C6EE94A473F3D9FE67C512 /* Sources */,
+				9364E9861900DA39968C291F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sunnyside;
+			packageProductDependencies = (
+			);
+			productName = Sunnyside;
+			productReference = 85705AD674FA7489D6EE6753 /* Sunnyside.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D1093A1C270017A69F794A10 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					22B61BCB297D527C059575AA = {
+						DevelopmentTeam = 898NP95GBU;
+						ProvisioningStyle = Automatic;
+					};
+					2F022273C46B5B1DCDE103B9 = {
+						DevelopmentTeam = 898NP95GBU;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C037CCEC6B66B3E2EF30FD34 /* Build configuration list for PBXProject "Sunnyside" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 2CFDD31520E9B0FCE1DDA55D;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9EA1787A757A25AB7F50ADC3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F022273C46B5B1DCDE103B9 /* Sunnyside */,
+				22B61BCB297D527C059575AA /* SunnysideTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9364E9861900DA39968C291F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C644B77FAA590B94890524D /* Assets.xcassets in Resources */,
+				B64474E955FA1AA9FE313C8B /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0BC0DBB9670A0DEF6BB46121 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DC13BE5DF3EF3177CDF61B0 /* SeatEngineTests.swift in Sources */,
+				FA532401628121175D651C3D /* SunCalculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8C6EE94A473F3D9FE67C512 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E83875A61923A2CC50E6AC9F /* AppColors.swift in Sources */,
+				96FCB28D279867879A782BE9 /* AppFonts.swift in Sources */,
+				CA9D4B5713E20C9E7605C8CA /* AppTheme.swift in Sources */,
+				B0A9AAA9F6B3ECB5954CDD7A /* Appearance.swift in Sources */,
+				6EF6A68FAEBE483AA544376D /* DurationPickerSheet.swift in Sources */,
+				8FC4E58D90C431326EEDF359 /* GeoCalculator.swift in Sources */,
+				385A6ED48DD2C99AEFA198FC /* Journey.swift in Sources */,
+				12F68199FB3B1B6FEFE5F4C9 /* JourneyInputView.swift in Sources */,
+				A06493BFFE2C19F2029CA8D7 /* JourneyInputViewModel.swift in Sources */,
+				6F6F0DE406BC8DD60A6AAED3 /* PlaceSearch.swift in Sources */,
+				BDC4743DD114B73DE07EEDFA /* PlaceSearchSheet.swift in Sources */,
+				EBB0E518259866C710D7580E /* ResultView.swift in Sources */,
+				27D7AD902C549569C983BD2B /* ResultViewModel.swift in Sources */,
+				54D897C095B73B3D7C79B6A3 /* RouteStripView.swift in Sources */,
+				2C870CC87E875A5C7B409161 /* SeatEngine.swift in Sources */,
+				7705D15A92A9ECFCB4DC2C21 /* SeatMapView.swift in Sources */,
+				98A01EE165CD5C1FEEA00152 /* SeatRecommendation.swift in Sources */,
+				B04EB046C60DE44F37CB88EF /* SettingsView.swift in Sources */,
+				43B0346911CDF3E53023FC4E /* SunCalculator.swift in Sources */,
+				4E074116C0F3654C2F92B9D9 /* SunCompassView.swift in Sources */,
+				899D04243495D165F55D8A21 /* SunSample.swift in Sources */,
+				66301286511D8A3FE63ECC82 /* SunnysideApp.swift in Sources */,
+				200CE871CF4DC07E96FF9055 /* SwitchReminder.swift in Sources */,
+				AF2B45EF3DD54602ABEE2672 /* Vehicle.swift in Sources */,
+				6387279FD1ACF7745DA6EEB9 /* VehiclePicker.swift in Sources */,
+				A137D3831859C598215AA6C3 /* VehicleSilhouette.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6945B3603D28BED0E29479BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F022273C46B5B1DCDE103B9 /* Sunnyside */;
+			targetProxy = 7B8EA79678395E09520D514B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0F34E1C79A98D33CC5EE6ED8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sunnyside/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sunnyside.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1F72B96617D377A078AE7CF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 898NP95GBU;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2646069CB1A51BCB55F53957 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sunnyside.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sunnyside.app/Sunnyside";
+			};
+			name = Debug;
+		};
+		56C1F3683F5E57965F10DCDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sunnyside/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sunnyside.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		654E5D4150811D0DE90C9909 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 898NP95GBU;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F8FB193AA9CE6A006718B5A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sunnyside.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sunnyside.app/Sunnyside";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A44776AE99102C9ED7EC301 /* Build configuration list for PBXNativeTarget "SunnysideTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2646069CB1A51BCB55F53957 /* Debug */,
+				F8FB193AA9CE6A006718B5A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6385326E5134DEBEDF563DC2 /* Build configuration list for PBXNativeTarget "Sunnyside" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56C1F3683F5E57965F10DCDE /* Debug */,
+				0F34E1C79A98D33CC5EE6ED8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C037CCEC6B66B3E2EF30FD34 /* Build configuration list for PBXProject "Sunnyside" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F72B96617D377A078AE7CF8 /* Debug */,
+				654E5D4150811D0DE90C9909 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D1093A1C270017A69F794A10 /* Project object */;
+}
