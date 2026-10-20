@@ -52,9 +52,9 @@ docs/             # brief, algorithm, setup
 
 ## Current state
 - v2 prototype: Python/Flask in `old/sunnyside_v2/` — reference only, not shipped
-- v3 iOS: redesigned Oct 2026 (MapKit search, departure time picker, duration override, seat-map result, 22 unit tests)
-- Needs: signing team only. No fonts, no API keys.
-- `-demo left|right|switch|mixed|night|plane` launch argument opens a canned result (screenshots, previews)
+- v3 iOS: redesigned Oct 2026 (MapKit search, departure time picker, duration override, vehicle-shaped seat map inside a sun compass with time scrubber, light/dark/system appearance, switch reminder, 22 unit tests)
+- Needs: an Apple ID signed into Xcode for the configured team. No fonts, no API keys.
+- `-demo left|right|switch|mixed|car|ferry|night|plane|dayplane` and `-appearance light|dark|system` launch arguments open canned results (screenshots, previews)
 - See `docs/setup.md`
 
 ## Regenerate Xcode project after adding files
