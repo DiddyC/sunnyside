@@ -1,23 +1,26 @@
-# Privacy Policy for Sunnyside
+# Privacy Policy for Shady Seat (formerly Sunny-Side)
 
 **Effective date:** October 21, 2026
 
 ## Summary
 
-Sunnyside works out which side of a bus, train, car, ferry or plane will be in the shade. Everything is computed on your phone. Sunnyside has no accounts, no analytics, no advertising and no servers of its own.
+Shady Seat works out which side of a bus, train, car, ferry or plane will be in the shade. Everything is computed on your phone. Shady Seat has no accounts, no analytics, no advertising and no servers of its own.
 
 ## What the app uses
 
 ### Your location (optional)
-If you allow it, Sunnyside reads your device location once per launch to fill in your starting point. The coordinate is used only for the on-device sun calculation. It is not stored after you close the app and it is never sent to us.
+If you allow it, Shady Seat reads your device location once per launch to fill in your starting point. The coordinate is used only for the on-device sun calculation. It is not stored after you close the app and it is never sent to us.
 
 If you decline, you can type a starting point instead. Nothing else changes.
 
 ### Places you type
-When you search for a place, the text you type is sent to Apple Maps (MapKit) to suggest addresses and to convert a chosen place into coordinates. This happens through Apple's own services under Apple's privacy policy (https://www.apple.com/legal/privacy/). Sunnyside does not add any identifier to these requests.
+When you search for a place, the text you type is sent to Apple Maps (MapKit) to suggest addresses and to convert a chosen place into coordinates. This happens through Apple's own services under Apple's privacy policy (https://www.apple.com/legal/privacy/). Shady Seat does not add any identifier to these requests.
 
-### Trips you save
-If a future version lets you save trips, they are stored only on your device (and in your iCloud backup if you have backups enabled). We cannot read them.
+### Recent places and settings
+Your recent places and preferences are stored only on your device (and in your iCloud backup if you have backups enabled). We cannot read them.
+
+### Purchases
+If you buy the lifetime unlock, the purchase is handled entirely by Apple's App Store. We never see your payment details. We keep no record of who bought it; your receipt lives with Apple and can be restored on any of your devices.
 
 ## What we do not do
 
@@ -29,7 +32,7 @@ If a future version lets you save trips, they are stored only on your device (an
 
 ## Children
 
-Sunnyside is not directed at children under 13 and collects no personal information from anyone.
+Shady Seat is not directed at children under 13 and collects no personal information from anyone.
 
 ## Changes
 

@@ -188,7 +188,7 @@ struct ResultView: View {
     private var explanation: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text("How this is worked out").eyebrowStyle()
-            Text("Sunnyside follows your route every few minutes, works out where the sun is in the sky, and scores how hard it would shine through each side window. Low sun counts more than noon sun, which mostly hits the roof.")
+            Text("Shady Seat follows your route every few minutes, works out where the sun is in the sky, and scores how hard it would shine through each side window. Low sun counts more than noon sun, which mostly hits the roof.")
                 .font(.footnote)
                 .foregroundStyle(Color.textTertiary)
                 .fixedSize(horizontal: false, vertical: true)

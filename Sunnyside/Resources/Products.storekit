@@ -1,0 +1,20 @@
+{
+  "identifier" : "ShadySeatProducts",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "1.99",
+      "familyShareable" : true,
+      "internalID" : "LIFETIME001",
+      "localizations" : [
+        { "description" : "Unlimited searches, no ads, forever.", "displayName" : "Shady Seat Lifetime", "locale" : "en_US" }
+      ],
+      "productID" : "com.didisd.SunnySideApp.lifetime",
+      "referenceName" : "Lifetime",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : { "_applicationInternalID" : "6749254551", "_developerTeamID" : "898NP95GBU" },
+  "subscriptionGroups" : [],
+  "version" : { "major" : 3, "minor" : 0 }
+}
