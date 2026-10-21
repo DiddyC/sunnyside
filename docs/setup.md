@@ -30,6 +30,20 @@ Add `-appearance light|dark|system` to force a look. Simulator one-liner:
 xcrun simctl launch booted com.sunnyside.app -demo switch -appearance light
 ```
 
+## Test on your phone
+
+**Cable (fastest).** Sign in to Xcode once (Settings → Accounts → + → Apple ID for team 898NP95GBU), plug the phone in, unlock it, tap Trust, then:
+```bash
+scripts/device-run.sh
+```
+The first time, trust the developer on the phone under Settings → General → VPN & Device Management.
+
+**TestFlight (no cable, shareable).** Create the app record once in App Store Connect (My Apps → +, bundle ID `com.sunnyside.app`), then:
+```bash
+scripts/testflight.sh
+```
+Works with the Apple ID signed into Xcode, or with an App Store Connect API key via `ASC_KEY_ID` / `ASC_ISSUER_ID` (key file in `~/.private_keys/`). The build shows up in TestFlight after processing; install it from the TestFlight app.
+
 ## Running tests
 ```bash
 xcodebuild test -project Sunnyside.xcodeproj -scheme Sunnyside \
