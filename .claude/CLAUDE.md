@@ -55,7 +55,7 @@ docs/             # brief, algorithm, setup
 - v3 iOS: redesigned Oct 2026 (MapKit search, departure time picker, duration override, vehicle-shaped seat map inside a sun compass with time scrubber, light/dark/system appearance, switch reminder, 22 unit tests)
 - Needs: an Apple ID signed into Xcode for the configured team. No fonts, no API keys.
 - `-demo left|right|switch|mixed|car|ferry|night|plane|dayplane` and `-appearance light|dark|system` launch arguments open canned results (screenshots, previews)
-- See `docs/setup.md`
+- See `docs/setup.md`; releases: `docs/release-process.md` (read it first, it records the screenshot/API lessons)
 
 ## Regenerate Xcode project after adding files
 ```bash
