@@ -42,6 +42,16 @@ struct JourneyInputView: View {
             vm.requestCurrentLocationIfNeeded()
             // Screenshot/QA hook: `-sheet from|to|leaving|duration|settings` opens a sheet on launch.
             let args = ProcessInfo.processInfo.arguments
+            if args.contains("-prefill") {
+                // Screenshot state: a filled-in form.
+                vm.set(destination: PlaceResult(name: "Haifa", coordinate: .init(latitude: 32.794, longitude: 34.989), timeZone: .current))
+                vm.vehicle = .train
+                var cal = Calendar.current
+                cal.timeZone = .current
+                let tomorrow = cal.date(byAdding: .day, value: 1, to: Date()) ?? Date()
+                vm.departureDate = cal.date(bySettingHour: 8, minute: 0, second: 0, of: tomorrow) ?? tomorrow
+                vm.leavesNow = false
+            }
             if let i = args.firstIndex(of: "-sheet"), i + 1 < args.count {
                 try? await Task.sleep(nanoseconds: 1_500_000_000)
                 switch args[i + 1] {

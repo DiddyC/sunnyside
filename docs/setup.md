@@ -52,6 +52,12 @@ scripts/submit.py             # submit 2.0.0
 ```
 Without the key: App Store Connect → Sunny-Side → App Store tab → + next to iOS App → version → pick the build → paste the release notes → Add for Review → Submit.
 
+## Store screenshots
+`scripts/store-screenshots.sh [--upload]` captures the app on an iPhone 17 Pro Max and iPad Pro 13" simulator
+(using the `-demo`, `-prefill` and `-sheet` launch states), frames each shot with a caption via
+`scripts/frame-screenshot.swift`, and with `--upload` replaces the listing's screenshots through the API
+(`scripts/upload-screenshots.py`), resubmitting for review if the version was waiting.
+
 ## Running tests
 ```bash
 xcodebuild test -project Sunnyside.xcodeproj -scheme Sunnyside \
