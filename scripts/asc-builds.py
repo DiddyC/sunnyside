@@ -53,7 +53,7 @@ def main():
         sys.exit(f"Key file not found: {key_path}")
     q = urllib.parse.urlencode({
         "filter[app]": APP_ID, "sort": "-uploadedDate", "limit": "8",
-        "fields[builds]": "version,processingState,uploadedDate,expired,usesNonExemptEncryption",
+        "fields[builds]": "version,processingState,uploadedDate,expired,usesNonExemptEncryption,preReleaseVersion",
         "include": "preReleaseVersion", "fields[preReleaseVersions]": "version",
     })
     req = urllib.request.Request(f"https://api.appstoreconnect.apple.com/v1/builds?{q}",
