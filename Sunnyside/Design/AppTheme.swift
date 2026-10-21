@@ -6,6 +6,8 @@ enum AppTheme {
     static let pillCorner: CGFloat   = 100
     static let cardPadding: CGFloat  = 18
     static let screenGutter: CGFloat = 20
+    /// Readable column on iPad and in landscape.
+    static let maxContentWidth: CGFloat = 600
 }
 
 struct SurfaceCard: ViewModifier {

@@ -27,7 +27,7 @@ Launch with an argument to open a canned result directly (Edit Scheme → Argume
 ```
 Add `-appearance light|dark|system` to force a look. Simulator one-liner:
 ```bash
-xcrun simctl launch booted com.sunnyside.app -demo switch -appearance light
+xcrun simctl launch booted com.didisd.SunnySideApp -demo switch -appearance light
 ```
 
 ## Test on your phone
@@ -38,7 +38,7 @@ scripts/device-run.sh
 ```
 The first time, trust the developer on the phone under Settings → General → VPN & Device Management.
 
-**TestFlight (no cable, shareable).** Create the app record once in App Store Connect (My Apps → +, bundle ID `com.sunnyside.app`), then:
+**TestFlight (no cable, shareable).** The App Store record already exists ("Sunny-Side", bundle ID `com.didisd.SunnySideApp`, team Solomon Labs LLC), so just run:
 ```bash
 scripts/testflight.sh
 ```

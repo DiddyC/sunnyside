@@ -29,3 +29,9 @@ Secrets.xcconfig
 old/sunnyside_v2/__pycache__/
 old/sunnyside_v2/.ipynb_checkpoints/
 old/sunnyside_v2/wheels/
+
+# API keys and local env, never in the repo
+*.p8
+AuthKey_*
+private_keys/
+*.env

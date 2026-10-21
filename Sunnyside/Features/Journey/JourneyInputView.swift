@@ -27,6 +27,8 @@ struct JourneyInputView: View {
                     .padding(.horizontal, AppTheme.screenGutter)
                     .padding(.top, 12)
                     .padding(.bottom, 32)
+                    .frame(maxWidth: AppTheme.maxContentWidth)
+                    .frame(maxWidth: .infinity)
                 }
                 .scrollDismissesKeyboard(.interactively)
             }
