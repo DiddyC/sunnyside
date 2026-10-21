@@ -91,7 +91,7 @@ struct JourneyInputView: View {
     private var header: some View {
         HStack(alignment: .firstTextBaseline, spacing: 12) {
             VStack(alignment: .leading, spacing: 2) {
-                Text("Shady Seat")
+                Text("Coolside")
                     .font(.display(40))
                     .foregroundStyle(Color.textPrimary)
                 Text("Know which side before you sit.")

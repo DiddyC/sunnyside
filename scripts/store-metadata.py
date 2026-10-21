@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Set the App Store listing text for Shady Seat: app name + subtitle (app info) and
+"""Set the App Store listing text for Coolside: app name + subtitle (app info) and
 keywords / description / promotional text for a version.
 
   scripts/store-metadata.py --version 2.0.0 [--dry-run]
@@ -10,13 +10,13 @@ ROOT = Path(__file__).resolve().parent
 spec = importlib.util.spec_from_file_location("submit", ROOT / "submit.py"); asc = importlib.util.module_from_spec(spec); spec.loader.exec_module(asc)
 call, APP_ID = asc.call, asc.APP_ID
 
-NAME = "Shady Seat"
+NAME = "Coolside: Shady Seat Finder"
 SUBTITLE = "Sit on the shady side"                       # ≤ 30 chars
-KEYWORDS = "shade,seat,sun,train,bus,plane,flight,window,glare,sunny side,sunnyside,commute,travel"  # ≤ 100 chars
+KEYWORDS = "shade,seat,sun,train,bus,plane,flight,window,glare,sunny side,sunnyside,coolside,commute"  # ≤ 100 chars
 PROMO = "Which side of the train, bus or plane will be in the shade? One word: LEFT or RIGHT."        # ≤ 170 chars
-DESCRIPTION = """Which side of the train, bus, plane, car or ferry will be in the shade? Shady Seat tells you in one word.
+DESCRIPTION = """Which side of the train, bus, plane, car or ferry will be in the shade? Coolside tells you in one word.
 
-Enter where you're going and when you leave. Shady Seat follows your route minute by minute, works out where the sun will be in the sky, and scores how hard it would shine through each side window. Then it says LEFT or RIGHT.
+Enter where you're going and when you leave. Coolside follows your route minute by minute, works out where the sun will be in the sky, and scores how hard it would shine through each side window. Then it says LEFT or RIGHT.
 
 • Works for trains, buses, cars, planes and ferries
 • Pick a departure time, or enter the trip length from your ticket

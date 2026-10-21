@@ -82,7 +82,7 @@ final class ResultViewModel {
     }
 
     var shareText: String {
-        "\(journey.origin.name) → \(journey.destination.name) by \(journey.vehicle.displayName.lowercased()): sit \(headline.lowercased()). \(subtitle) — Shady Seat"
+        "\(journey.origin.name) → \(journey.destination.name) by \(journey.vehicle.displayName.lowercased()): sit \(headline.lowercased()). \(subtitle) — Coolside"
     }
 
     var accessibilitySummary: String {

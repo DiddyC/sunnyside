@@ -50,7 +50,7 @@ targets:
     info:
       path: Sunnyside/Info.plist
       properties:
-        CFBundleDisplayName: Shady Seat
+        CFBundleDisplayName: Coolside
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         UILaunchScreen:
@@ -63,7 +63,7 @@ targets:
           - UIInterfaceOrientationPortraitUpsideDown
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
-        NSLocationWhenInUseUsageDescription: "Shady Seat uses your location once to fill in where you're starting from. It never leaves your phone."
+        NSLocationWhenInUseUsageDescription: "Coolside uses your location once to fill in where you're starting from. It never leaves your phone."
         ITSAppUsesNonExemptEncryption: false
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: false

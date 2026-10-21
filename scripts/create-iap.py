@@ -24,8 +24,8 @@ def call_or_none(method, path, **kw):
         raise
 
 PRODUCT_ID = "com.didisd.SunnySideApp.lifetime"
-REF_NAME = "Shady Seat Lifetime"
-DISPLAY_NAME = "Shady Seat Lifetime"
+REF_NAME = "Coolside Lifetime"
+DISPLAY_NAME = "Coolside Lifetime"
 DESCRIPTION = "Unlimited searches, no ads, forever."
 REVIEW_NOTE = "One-time unlock. Free users get one search per day; this removes the limit and the ad slot."
 

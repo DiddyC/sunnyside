@@ -1,4 +1,4 @@
-# Sunnyside — iOS App
+# Coolside (code name Sunnyside) — iOS App
 
 ## What this is
 An iOS app that tells you **which side of the vehicle to sit on to avoid the sun** during a journey. Input: origin, destination, transport type. Output: left or right seat recommendation.

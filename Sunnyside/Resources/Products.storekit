@@ -1,5 +1,5 @@
 {
-  "identifier" : "ShadySeatProducts",
+  "identifier" : "CoolsideProducts",
   "nonRenewingSubscriptions" : [],
   "products" : [
     {
@@ -7,7 +7,7 @@
       "familyShareable" : true,
       "internalID" : "LIFETIME001",
       "localizations" : [
-        { "description" : "Unlimited searches, no ads, forever.", "displayName" : "Shady Seat Lifetime", "locale" : "en_US" }
+        { "description" : "Unlimited searches, no ads, forever.", "displayName" : "Coolside Lifetime", "locale" : "en_US" }
       ],
       "productID" : "com.didisd.SunnySideApp.lifetime",
       "referenceName" : "Lifetime",
