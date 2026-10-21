@@ -12,7 +12,7 @@ enum SwitchReminder {
 
         let fire = max(Date().addingTimeInterval(5), switchTime.addingTimeInterval(-leadTime))
         let content = UNMutableNotificationContent()
-        content.title = "Shady Seat: the sun is about to switch sides"
+        content.title = "Coolside: the sun is about to switch sides"
         content.body = "In about 5 minutes the shade moves to the \(newShadySide == .left ? "left" : "right") on your \(journey.vehicle.displayName.lowercased()) to \(journey.destination.name)."
         content.sound = .default
 

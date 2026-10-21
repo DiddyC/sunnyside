@@ -29,14 +29,14 @@ struct SettingsView: View {
                                 ForEach(Appearance.allCases) { Text($0.title).tag($0) }
                             }
                             .pickerStyle(.segmented)
-                            Text("Dark is the Shady Seat look. Light uses the same layout on warm paper. System follows your phone.")
+                            Text("Dark is the Coolside look. Light uses the same layout on warm paper. System follows your phone.")
                                 .font(.footnote)
                                 .foregroundStyle(Color.textTertiary)
                         }
 
                         if Monetization.enabled {
                             VStack(alignment: .leading, spacing: 10) {
-                                Text("Shady Seat Lifetime").eyebrowStyle()
+                                Text("Coolside Lifetime").eyebrowStyle()
                                 VStack(spacing: 0) {
                                     if ent.isLifetime {
                                         row("Unlocked", value: "Unlimited searches, no ads")

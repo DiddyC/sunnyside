@@ -15,7 +15,7 @@ struct PaywallView: View {
                 Color.appBackground.ignoresSafeArea()
                 VStack(alignment: .leading, spacing: 22) {
                     VStack(alignment: .leading, spacing: 6) {
-                        Text("Shady Seat Lifetime")
+                        Text("Coolside Lifetime")
                             .font(.display(34))
                             .foregroundStyle(Color.textPrimary)
                         Text(reason)
