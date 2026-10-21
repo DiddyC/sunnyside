@@ -8,7 +8,7 @@
 #        key file at ~/.private_keys/AuthKey_$ASC_KEY_ID.p8 (or set ASC_KEY_PATH)
 #
 # Before the first upload the app record must exist in App Store Connect
-# (My Apps → + → iOS, bundle ID com.sunnyside.app, name Sunnyside).
+# (My Apps → + → iOS, bundle ID com.didisd.SunnySideApp, name Sunnyside).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 

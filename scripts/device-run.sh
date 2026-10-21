@@ -23,5 +23,5 @@ APP=build/dd/Build/Products/Debug-iphoneos/Sunnyside.app
 echo "▶ Installing"
 xcrun devicectl device install app --device "$DEVICE" "$APP"
 echo "▶ Launching"
-xcrun devicectl device process launch --device "$DEVICE" com.sunnyside.app
+xcrun devicectl device process launch --device "$DEVICE" com.didisd.SunnySideApp
 echo "Done. First time only: on the phone go to Settings → General → VPN & Device Management and trust the developer."
