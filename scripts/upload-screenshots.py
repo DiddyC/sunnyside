@@ -54,12 +54,16 @@ def upload(set_id, path):
     return shot["id"]
 
 def wait_processed(shot_ids):
+    """Returns the ids that Apple failed to process (ASSET_FAILED is usually transient)."""
+    failed = []
     for sid in shot_ids:
-        for _ in range(30):
+        for _ in range(40):
             st = call("GET", f"/appScreenshots/{sid}", params={"fields[appScreenshots]": "assetDeliveryState"})["data"]["attributes"]["assetDeliveryState"]["state"]
             if st == "COMPLETE": break
-            if st == "FAILED": sys.exit(f"Apple rejected screenshot {sid}: " + json.dumps(call("GET", f"/appScreenshots/{sid}")["data"]["attributes"]["assetDeliveryState"]))
+            if st == "FAILED":
+                print(f"  Apple failed to process screenshot {sid}; will retry"); failed.append(sid); break
             time.sleep(3)
+    return failed
 
 def cancel_review(version):
     subs = call("GET", "/reviewSubmissions", params={"filter[app]": APP_ID, "filter[state]": "WAITING_FOR_REVIEW,READY_FOR_REVIEW,UNRESOLVED_ISSUES", "fields[reviewSubmissions]": "state"})["data"]
@@ -84,7 +88,6 @@ def main():
             if state != "WAITING_FOR_REVIEW": break
         print(f"  version now {state}")
     loc = localization_id(vid)
-    uploaded = []
     for folder, display in [(a.iphone, "APP_IPHONE_67"), (a.ipad, "APP_IPAD_PRO_3GEN_129")]:
         if not folder: continue
         files = sorted(Path(folder).glob("*.png"))
@@ -92,8 +95,23 @@ def main():
         print(f"▶ {display}: {len(files)} file(s)")
         sid = screenshot_set(loc, display)
         clear_set(sid)
-        uploaded += [upload(sid, f) for f in files]
-    print("▶ Waiting for Apple to process the images"); wait_processed(uploaded); print("  all processed")
+        pending = {upload(sid, f): f for f in files}
+        for attempt in range(3):
+            failed = wait_processed(list(pending))
+            if not failed: break
+            retry = {}
+            for fid in failed:
+                f = pending.pop(fid); call("DELETE", f"/appScreenshots/{fid}")
+                retry[upload(sid, f)] = f
+            pending = retry
+        else:
+            sys.exit("Apple kept failing to process some screenshots; try again later.")
+        # keep store order = file order
+        order = [i for i, _ in sorted(((i, f) for i, f in {**pending}.items()), key=lambda x: x[1].name)]
+        all_ids = [i for i in call("GET", f"/appScreenshotSets/{sid}/appScreenshots", params={"fields[appScreenshots]": "fileName"})["data"]]
+        by_name = sorted(all_ids, key=lambda x: x["attributes"]["fileName"])
+        call("PATCH", f"/appScreenshotSets/{sid}/relationships/appScreenshots", {"data": [{"type": "appScreenshots", "id": x["id"]} for x in by_name]})
+        print(f"  {len(by_name)} screenshot(s) processed and ordered")
     if a.resubmit:
         print("▶ Submitting for review again"); asc.submit(vid)
 

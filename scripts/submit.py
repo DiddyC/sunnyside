@@ -65,9 +65,12 @@ def find_build(version, build_number):
     params = {"filter[app]": APP_ID, "filter[preReleaseVersion.version]": version, "sort": "-uploadedDate", "limit": 10,
               "fields[builds]": "version,processingState,uploadedDate,usesNonExemptEncryption,expired"}
     if build_number: params["filter[version]"] = build_number
-    builds = [b for b in call("GET", "/builds", params=params)["data"] if not b["attributes"]["expired"]]
-    if not builds: sys.exit(f"No build found for version {version}" + (f" build {build_number}" if build_number else ""))
-    return builds[0]
+    # A freshly uploaded build can take a few minutes to show up in the API.
+    for attempt in range(20):
+        builds = [b for b in call("GET", "/builds", params=params)["data"] if not b["attributes"]["expired"]]
+        if builds: return builds[0]
+        print(f"  build not visible yet; waiting… ({attempt + 1}/20)"); time.sleep(60)
+    sys.exit(f"No build found for version {version}" + (f" build {build_number}" if build_number else ""))
 
 def wait_until_processed(build, minutes=40):
     deadline = time.time() + minutes * 60
