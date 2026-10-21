@@ -44,6 +44,14 @@ scripts/testflight.sh
 ```
 Works with the Apple ID signed into Xcode, or with an App Store Connect API key via `ASC_KEY_ID` / `ASC_ISSUER_ID` (key file in `~/.private_keys/`). The build shows up in TestFlight after processing; install it from the TestFlight app.
 
+## Submit to the App Store
+With the App Store Connect API key in place (see TestFlight section), one command creates the version, attaches the newest processed build, sets the release notes from `docs/release-notes/<version>.md` and submits for review:
+```bash
+scripts/submit.py --dry-run   # everything except the final submit
+scripts/submit.py             # submit 2.0.0
+```
+Without the key: App Store Connect → Sunny-Side → App Store tab → + next to iOS App → version → pick the build → paste the release notes → Add for Review → Submit.
+
 ## Running tests
 ```bash
 xcodebuild test -project Sunnyside.xcodeproj -scheme Sunnyside \
