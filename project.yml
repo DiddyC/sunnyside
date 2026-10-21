@@ -22,6 +22,22 @@ settings:
     CODE_SIGN_STYLE: Automatic
     DEVELOPMENT_TEAM: 898NP95GBU
 
+schemes:
+  Sunnyside:
+    build:
+      targets:
+        Sunnyside: all
+        SunnysideTests: [test]
+    run:
+      config: Debug
+      # Local StoreKit testing for the lifetime unlock (no App Store Connect needed in the simulator).
+      storeKitConfiguration: Sunnyside/Resources/Products.storekit
+    test:
+      config: Debug
+      targets: [SunnysideTests]
+    archive:
+      config: Release
+
 targets:
   Sunnyside:
     type: application
@@ -34,7 +50,7 @@ targets:
     info:
       path: Sunnyside/Info.plist
       properties:
-        CFBundleDisplayName: Sunny-Side
+        CFBundleDisplayName: Shady Seat
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         UILaunchScreen:
@@ -47,7 +63,7 @@ targets:
           - UIInterfaceOrientationPortraitUpsideDown
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
-        NSLocationWhenInUseUsageDescription: "Sunnyside uses your location once to fill in where you're starting from. It never leaves your phone."
+        NSLocationWhenInUseUsageDescription: "Shady Seat uses your location once to fill in where you're starting from. It never leaves your phone."
         ITSAppUsesNonExemptEncryption: false
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: false

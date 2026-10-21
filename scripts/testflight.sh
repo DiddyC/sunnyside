@@ -3,20 +3,21 @@
 #
 # Auth, one of:
 #   A) An Apple ID for team 898NP95GBU signed into Xcode (Settings → Accounts). Nothing else needed.
-#   B) An App Store Connect API key (no Apple ID in Xcode needed):
-#        export ASC_KEY_ID=ABC123DEFG ASC_ISSUER_ID=xxxxxxxx-xxxx-...   # from appstoreconnect.apple.com → Users and Access → Integrations → App Store Connect API
-#        key file at ~/.private_keys/AuthKey_$ASC_KEY_ID.p8 (or set ASC_KEY_PATH)
+#   B) TESTFLIGHT_USE_API_KEY=1 with an Admin-role App Store Connect API key in ~/.config/sunnyside/asc.env
+#      (App Manager keys cannot do cloud signing).
 #
 # Before the first upload the app record must exist in App Store Connect
 # (My Apps → + → iOS, bundle ID com.didisd.SunnySideApp, name Sunnyside).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-# Optional API-key auth from ~/.config/sunnyside/asc.env (never inside the repo)
-if [ -f "$HOME/.config/sunnyside/asc.env" ]; then set -a; . "$HOME/.config/sunnyside/asc.env"; set +a; fi
-
+# Signing and upload use the Apple ID signed into Xcode by default. An App Store Connect
+# API key can drive xcodebuild instead (TESTFLIGHT_USE_API_KEY=1), but cloud-managed
+# signing then requires an Admin-role key; an App Manager key fails with
+# "Cloud signing permission error". The REST scripts (submit.py etc.) work with either role.
 AUTH=()
-if [ -n "${ASC_KEY_ID:-}" ]; then
+if [ "${TESTFLIGHT_USE_API_KEY:-0}" = "1" ]; then
+  if [ -f "$HOME/.config/sunnyside/asc.env" ]; then set -a; . "$HOME/.config/sunnyside/asc.env"; set +a; fi
   KEY_PATH="${ASC_KEY_PATH:-$HOME/.private_keys/AuthKey_${ASC_KEY_ID}.p8}"
   [ -f "$KEY_PATH" ] || { echo "API key file not found: $KEY_PATH" >&2; exit 1; }
   [ -n "${ASC_ISSUER_ID:-}" ] || { echo "ASC_ISSUER_ID is not set" >&2; exit 1; }

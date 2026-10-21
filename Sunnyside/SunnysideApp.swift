@@ -24,6 +24,7 @@ struct RootView: View {
         }
         .tint(.sunText)
         .preferredColorScheme((Appearance(rawValue: appearanceRaw) ?? .dark).colorScheme)
+        .task { if Monetization.enabled { await Entitlements.shared.refresh() } }
     }
 }
 

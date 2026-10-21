@@ -9,6 +9,8 @@ struct JourneyInputView: View {
     @State private var showDurationPicker = false
     @State private var showDeparturePicker = false
     @State private var showSettings = false
+    @State private var showPaywall = false
+    @State private var entitlements = Entitlements.shared
     @Environment(\.openURL) private var openURL
 
     var body: some View {
@@ -24,6 +26,7 @@ struct JourneyInputView: View {
                         durationRow
                         ctaButton
                             .padding(.top, 4)
+                        AdSlotView()
                     }
                     .padding(.horizontal, AppTheme.screenGutter)
                     .padding(.top, 12)
@@ -65,6 +68,7 @@ struct JourneyInputView: View {
             }
         }
         .sheet(isPresented: $showSettings) { SettingsView() }
+        .sheet(isPresented: $showPaywall) { PaywallView() }
         .sheet(isPresented: $showOriginSearch) {
             PlaceSearchSheet(title: "From", region: vm.searchRegion, nearbyCenter: vm.nearbyCenter,
                              showCurrentLocation: vm.locationState != .denied,
@@ -87,10 +91,10 @@ struct JourneyInputView: View {
     private var header: some View {
         HStack(alignment: .firstTextBaseline, spacing: 12) {
             VStack(alignment: .leading, spacing: 2) {
-                Text("Sunnyside")
+                Text("Shady Seat")
                     .font(.display(40))
                     .foregroundStyle(Color.textPrimary)
-                Text("Find the shady side before you sit.")
+                Text("Know which side before you sit.")
                     .font(.subheadline)
                     .foregroundStyle(Color.textSecondary)
             }
@@ -308,14 +312,28 @@ struct JourneyInputView: View {
     // MARK: - CTA
 
     private var ctaButton: some View {
-        Button {
-            journey = vm.buildJourney()
-        } label: {
-            Label("Find my seat", systemImage: "sun.and.horizon.fill")
+        VStack(spacing: 8) {
+            Button {
+                guard entitlements.canSearchToday else { showPaywall = true; return }
+                if let j = vm.buildJourney() {
+                    entitlements.recordSearch()
+                    journey = j
+                }
+            } label: {
+                Label("Find my seat", systemImage: "sun.and.horizon.fill")
+            }
+            .buttonStyle(PrimaryButtonStyle())
+            .disabled(!vm.canSearch)
+            .animation(.easeInOut(duration: 0.2), value: vm.canSearch)
+
+            if Monetization.enabled, !entitlements.isLifetime {
+                Text(entitlements.searchesLeftToday > 0
+                     ? "\(entitlements.searchesLeftToday) free search left today"
+                     : "Today's free search is used. Unlock for unlimited.")
+                    .font(.caption)
+                    .foregroundStyle(Color.textTertiary)
+            }
         }
-        .buttonStyle(PrimaryButtonStyle())
-        .disabled(!vm.canSearch)
-        .animation(.easeInOut(duration: 0.2), value: vm.canSearch)
     }
 }
 

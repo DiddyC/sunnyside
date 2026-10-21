@@ -3,6 +3,8 @@ import SwiftUI
 struct SettingsView: View {
     @AppStorage(Appearance.storageKey) private var appearanceRaw = Appearance.dark.rawValue
     @Environment(\.dismiss) private var dismiss
+    @State private var ent = Entitlements.shared
+    @State private var showPaywall = false
 
     private var appearance: Binding<Appearance> {
         Binding(get: { Appearance(rawValue: appearanceRaw) ?? .dark },
@@ -27,9 +29,44 @@ struct SettingsView: View {
                                 ForEach(Appearance.allCases) { Text($0.title).tag($0) }
                             }
                             .pickerStyle(.segmented)
-                            Text("Dark is the Sunnyside look. Light uses the same layout on warm paper. System follows your phone.")
+                            Text("Dark is the Shady Seat look. Light uses the same layout on warm paper. System follows your phone.")
                                 .font(.footnote)
                                 .foregroundStyle(Color.textTertiary)
+                        }
+
+                        if Monetization.enabled {
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text("Shady Seat Lifetime").eyebrowStyle()
+                                VStack(spacing: 0) {
+                                    if ent.isLifetime {
+                                        row("Unlocked", value: "Unlimited searches, no ads")
+                                    } else {
+                                        Button { showPaywall = true } label: {
+                                            HStack {
+                                                Text(ent.lifetimeProduct.map { "Unlock for \($0.displayPrice), once" } ?? "Unlock lifetime")
+                                                    .font(.body.weight(.semibold)).foregroundStyle(Color.sunText)
+                                                Spacer()
+                                                Image(systemName: "chevron.right").font(.caption.weight(.bold)).foregroundStyle(Color.textTertiary)
+                                            }
+                                            .padding(.horizontal, 16).frame(minHeight: 48).contentShape(Rectangle())
+                                        }
+                                        .buttonStyle(.plain)
+                                        Divider().background(Color.appBorder)
+                                        Button { Task { await ent.restore() } } label: {
+                                            HStack { Text("Restore purchase").font(.body).foregroundStyle(Color.textPrimary); Spacer() }
+                                                .padding(.horizontal, 16).frame(minHeight: 48).contentShape(Rectangle())
+                                        }
+                                        .buttonStyle(.plain)
+                                    }
+                                }
+                                .background(Color.appSurface)
+                                .clipShape(RoundedRectangle(cornerRadius: AppTheme.fieldCorner, style: .continuous))
+                                .overlay(RoundedRectangle(cornerRadius: AppTheme.fieldCorner, style: .continuous)
+                                    .strokeBorder(Color.appBorder, lineWidth: 1))
+                                if let err = ent.lastError {
+                                    Text(err).font(.footnote).foregroundStyle(Color.danger)
+                                }
+                            }
                         }
 
                         VStack(alignment: .leading, spacing: 10) {
@@ -61,6 +98,8 @@ struct SettingsView: View {
             .toolbarBackground(Color.appBackground, for: .navigationBar)
         }
         .presentationDetents([.medium, .large])
+        .sheet(isPresented: $showPaywall) { PaywallView(reason: "Searches without limits, and no ads.") }
+        .task { if Monetization.enabled { await ent.refresh() } }
     }
 
     private func row(_ title: String, value: String) -> some View {
