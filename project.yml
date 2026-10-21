@@ -1,0 +1,61 @@
+name: Sunnyside
+options:
+  bundleIdPrefix: com.sunnyside
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "15.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    ENABLE_PREVIEWS: YES
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    # iPhone only for 1.0: the layout is designed for phone widths.
+    TARGETED_DEVICE_FAMILY: "1"
+    ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+    SWIFT_STRICT_CONCURRENCY: minimal
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: 898NP95GBU
+
+targets:
+  Sunnyside:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: Sunnyside
+    # NOTE: Info.plist is GENERATED from the properties below on every
+    # `xcodegen generate`. Edit project.yml, not Info.plist.
+    info:
+      path: Sunnyside/Info.plist
+      properties:
+        CFBundleDisplayName: Sunnyside
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        NSLocationWhenInUseUsageDescription: "Sunnyside uses your location once to fill in where you're starting from. It never leaves your phone."
+        ITSAppUsesNonExemptEncryption: false
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sunnyside.app
+        INFOPLIST_FILE: Sunnyside/Info.plist
+
+  SunnysideTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: SunnysideTests
+    dependencies:
+      - target: Sunnyside
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sunnyside.tests
