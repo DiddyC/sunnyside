@@ -83,11 +83,32 @@ final class JourneyInputViewModel {
     func set(origin place: PlaceResult) {
         originMode = .place
         origin = place
+        RecentPlaces.add(place)
     }
 
     func set(destination place: PlaceResult) {
         destination = place
         durationOverride = nil   // a new route invalidates a hand-entered duration
+        RecentPlaces.add(place)
+    }
+
+    /// Where "nearby" suggestions are centred: the phone's position, else the chosen origin.
+    var nearbyCenter: CLLocationCoordinate2D? {
+        currentLocation?.coordinate ?? origin?.coordinate
+    }
+
+    /// Human text for the Leaving row.
+    var departureText: String {
+        guard !leavesNow else { return "Now" }
+        let f = DateFormatter()
+        f.timeZone = originTimeZone
+        let cal = Calendar.current
+        var day: String
+        if cal.isDateInToday(departureDate) { day = "Today" }
+        else if cal.isDateInTomorrow(departureDate) { day = "Tomorrow" }
+        else { f.dateFormat = "EEE d MMM"; day = f.string(from: departureDate) }
+        f.dateFormat = nil; f.timeStyle = .short; f.dateStyle = .none
+        return "\(day), \(f.string(from: departureDate))"
     }
 
     func select(vehicle v: Vehicle) {

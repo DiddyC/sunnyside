@@ -7,6 +7,7 @@ struct JourneyInputView: View {
     @State private var showOriginSearch = false
     @State private var showDestinationSearch = false
     @State private var showDurationPicker = false
+    @State private var showDeparturePicker = false
     @State private var showSettings = false
     @Environment(\.openURL) private var openURL
 
@@ -37,19 +38,37 @@ struct JourneyInputView: View {
             }
             .toolbar(.hidden, for: .navigationBar)
         }
-        .task { vm.requestCurrentLocationIfNeeded() }
+        .task {
+            vm.requestCurrentLocationIfNeeded()
+            // Screenshot/QA hook: `-sheet from|to|leaving|duration|settings` opens a sheet on launch.
+            let args = ProcessInfo.processInfo.arguments
+            if let i = args.firstIndex(of: "-sheet"), i + 1 < args.count {
+                try? await Task.sleep(nanoseconds: 1_500_000_000)
+                switch args[i + 1] {
+                case "from": showOriginSearch = true
+                case "to": showDestinationSearch = true
+                case "leaving": showDeparturePicker = true
+                case "duration": showDurationPicker = true
+                case "settings": showSettings = true
+                default: break
+                }
+            }
+        }
         .sheet(isPresented: $showSettings) { SettingsView() }
         .sheet(isPresented: $showOriginSearch) {
-            PlaceSearchSheet(title: "From", region: vm.searchRegion,
+            PlaceSearchSheet(title: "From", region: vm.searchRegion, nearbyCenter: vm.nearbyCenter,
                              showCurrentLocation: vm.locationState != .denied,
                              onUseCurrentLocation: { vm.useCurrentLocation() },
                              onPick: { vm.set(origin: $0) })
         }
         .sheet(isPresented: $showDestinationSearch) {
-            PlaceSearchSheet(title: "To", region: vm.searchRegion, onPick: { vm.set(destination: $0) })
+            PlaceSearchSheet(title: "To", region: vm.searchRegion, nearbyCenter: vm.nearbyCenter, onPick: { vm.set(destination: $0) })
         }
         .sheet(isPresented: $showDurationPicker) {
             DurationPickerSheet(estimate: vm.estimatedDuration ?? 3600, override: $vm.durationOverride)
+        }
+        .sheet(isPresented: $showDeparturePicker) {
+            DeparturePickerSheet(leavesNow: $vm.leavesNow, departureDate: $vm.departureDate, timeZone: vm.originTimeZone)
         }
     }
 
@@ -88,38 +107,51 @@ struct JourneyInputView: View {
     // MARK: - Route
 
     private var routeCard: some View {
-        VStack(spacing: 0) {
-            routeRow(label: "From", icon: originIcon, iconColor: vm.effectiveOrigin != nil ? .sunAmber : .textTertiary,
-                     text: originText, isPlaceholder: vm.effectiveOrigin == nil && vm.locationState != .locating) {
-                showOriginSearch = true
-            }
-            .accessibilityHint("Choose where you start")
+        VStack(alignment: .leading, spacing: 0) {
+            ZStack(alignment: .trailing) {
+                VStack(spacing: 0) {
+                    routeRow(label: "From", icon: originIcon, iconColor: vm.effectiveOrigin != nil ? .sunAmber : .textTertiary,
+                             text: originText, isPlaceholder: vm.effectiveOrigin == nil && vm.locationState != .locating) {
+                        showOriginSearch = true
+                    }
+                    .accessibilityHint("Choose where you start")
 
-            HStack {
-                Rectangle().fill(Color.appBorder).frame(width: 1, height: 14).padding(.leading, 33)
-                Spacer()
+                    Divider().overlay(Color.appBorder).padding(.leading, 50).padding(.trailing, 64)
+
+                    routeRow(label: "To", icon: "mappin.circle.fill", iconColor: vm.destination != nil ? .sunAmber : .textTertiary,
+                             text: vm.destination?.name ?? "Where to?", isPlaceholder: vm.destination == nil) {
+                        showDestinationSearch = true
+                    }
+                    .accessibilityHint("Choose your destination")
+                }
+                .background(Color.appSurface)
+                .clipShape(RoundedRectangle(cornerRadius: AppTheme.cornerRadius, style: .continuous))
+                .overlay(RoundedRectangle(cornerRadius: AppTheme.cornerRadius, style: .continuous)
+                    .strokeBorder(Color.appBorder, lineWidth: 1))
+
                 Button {
                     withAnimation(.snappy) { vm.swapEnds() }
                 } label: {
                     Image(systemName: "arrow.up.arrow.down")
-                        .font(.system(.subheadline, weight: .semibold))
-                        .foregroundStyle(Color.textSecondary)
-                        .frame(width: 44, height: 44)
-                        .contentShape(Circle())
+                        .font(.system(.subheadline, weight: .bold))
+                        .foregroundStyle(Color.textPrimary)
+                        .frame(width: 38, height: 38)
+                        .background(Color.appSurfaceElevated)
+                        .clipShape(Circle())
+                        .overlay(Circle().strokeBorder(Color.appBorder, lineWidth: 1))
+                        .shadow(color: .black.opacity(0.18), radius: 6, y: 2)
                 }
+                .buttonStyle(.plain)
+                .padding(.trailing, 14)
                 .disabled(vm.effectiveOrigin == nil || vm.destination == nil)
+                .opacity(vm.effectiveOrigin == nil || vm.destination == nil ? 0.45 : 1)
                 .accessibilityLabel("Swap start and destination")
             }
-            .frame(height: 14)
 
-            routeRow(label: "To", icon: "mappin.circle.fill", iconColor: vm.destination != nil ? .sunAmber : .textTertiary,
-                     text: vm.destination?.name ?? "Where to?", isPlaceholder: vm.destination == nil) {
-                showDestinationSearch = true
-            }
-            .accessibilityHint("Choose your destination")
-
-            if vm.locationState == .denied && vm.originMode == .currentLocation || (vm.locationState == .denied && vm.origin == nil) {
+            if vm.locationState == .denied && vm.origin == nil {
                 locationDeniedNote
+            } else if vm.locationState == .failed && vm.origin == nil {
+                inlineNote(icon: "location.slash", text: "Couldn't find your location. Type where you start, or try again from the From field.", color: .textSecondary)
             } else if vm.isTooShort {
                 inlineNote(icon: "exclamationmark.circle", text: "Start and destination are the same place.", color: .danger)
             }
@@ -160,11 +192,8 @@ struct JourneyInputView: View {
                     .foregroundStyle(Color.textTertiary)
             }
             .padding(.horizontal, 16)
+            .padding(.trailing, 44)   // room for the swap button
             .frame(minHeight: 64)
-            .background(Color.appSurface)
-            .clipShape(RoundedRectangle(cornerRadius: AppTheme.fieldCorner, style: .continuous))
-            .overlay(RoundedRectangle(cornerRadius: AppTheme.fieldCorner, style: .continuous)
-                .strokeBorder(Color.appBorder, lineWidth: 1))
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
@@ -196,47 +225,36 @@ struct JourneyInputView: View {
     // MARK: - Departure
 
     private var departureSection: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("Leaving").eyebrowStyle()
-            HStack(spacing: 8) {
-                choiceChip("Now", selected: vm.leavesNow) { vm.leavesNow = true }
-                choiceChip("Pick a time", selected: !vm.leavesNow) {
-                    if vm.leavesNow { vm.departureDate = Date().addingTimeInterval(3600) }
-                    vm.leavesNow = false
+        Button {
+            showDeparturePicker = true
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: vm.leavesNow ? "clock.fill" : "calendar")
+                    .font(.system(.subheadline, weight: .semibold))
+                    .foregroundStyle(Color.sunAmber)
+                    .frame(width: 22)
+                VStack(alignment: .leading, spacing: 1) {
+                    Text("Leaving").eyebrowStyle()
+                    Text(vm.departureText)
+                        .font(.body.weight(.medium))
+                        .foregroundStyle(Color.textPrimary)
                 }
+                Spacer(minLength: 8)
+                Image(systemName: "chevron.right")
+                    .font(.system(.caption, weight: .bold))
+                    .foregroundStyle(Color.textTertiary)
             }
-            if !vm.leavesNow {
-                DatePicker("Departure", selection: $vm.departureDate, in: Date()..., displayedComponents: [.date, .hourAndMinute])
-                    .datePickerStyle(.compact)
-                    .labelsHidden()
-                    .environment(\.timeZone, vm.originTimeZone)
-                    .tint(.sunText)
-                    .padding(.horizontal, 12)
-                    .frame(minHeight: 52)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color.appSurface)
-                    .clipShape(RoundedRectangle(cornerRadius: AppTheme.fieldCorner, style: .continuous))
-                    .overlay(RoundedRectangle(cornerRadius: AppTheme.fieldCorner, style: .continuous)
-                        .strokeBorder(Color.appBorder, lineWidth: 1))
-                    .transition(.opacity.combined(with: .move(edge: .top)))
-            }
-        }
-        .animation(.snappy, value: vm.leavesNow)
-    }
-
-    private func choiceChip(_ title: String, selected: Bool, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            Text(title)
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(selected ? Color.appBackground : Color.textSecondary)
-                .padding(.horizontal, 16)
-                .frame(minHeight: 40)
-                .background(selected ? Color.sunAmber : Color.appSurface)
-                .clipShape(Capsule())
-                .overlay(Capsule().strokeBorder(selected ? Color.clear : Color.appBorder, lineWidth: 1))
+            .padding(.horizontal, 16)
+            .frame(minHeight: 64)
+            .background(Color.appSurface)
+            .clipShape(RoundedRectangle(cornerRadius: AppTheme.cornerRadius, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: AppTheme.cornerRadius, style: .continuous)
+                .strokeBorder(Color.appBorder, lineWidth: 1))
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .accessibilityAddTraits(selected ? [.isSelected] : [])
+        .accessibilityLabel("Leaving \(vm.departureText)")
+        .accessibilityHint("Choose a departure time")
     }
 
     // MARK: - Vehicle
