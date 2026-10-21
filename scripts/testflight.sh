@@ -12,6 +12,9 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
+# Optional API-key auth from ~/.config/sunnyside/asc.env (never inside the repo)
+if [ -f "$HOME/.config/sunnyside/asc.env" ]; then set -a; . "$HOME/.config/sunnyside/asc.env"; set +a; fi
+
 AUTH=()
 if [ -n "${ASC_KEY_ID:-}" ]; then
   KEY_PATH="${ASC_KEY_PATH:-$HOME/.private_keys/AuthKey_${ASC_KEY_ID}.p8}"
