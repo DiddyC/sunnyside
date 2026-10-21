@@ -12,8 +12,10 @@ settings:
     ENABLE_PREVIEWS: YES
     MARKETING_VERSION: "2.0.0"
     CURRENT_PROJECT_VERSION: "1"
-    # iPhone only for 1.0: the layout is designed for phone widths.
-    TARGETED_DEVICE_FAMILY: "1"
+    # The live App Store record already supports iPad, and iPad support cannot be
+    # dropped from an existing app, so keep both families. Content is capped at a
+    # readable width on wide screens.
+    TARGETED_DEVICE_FAMILY: "1,2"
     ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
     SWIFT_STRICT_CONCURRENCY: minimal
@@ -39,6 +41,12 @@ targets:
           UIColorName: LaunchBackground
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
+        # iPad multitasking requires all four orientations.
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
         NSLocationWhenInUseUsageDescription: "Sunnyside uses your location once to fill in where you're starting from. It never leaves your phone."
         ITSAppUsesNonExemptEncryption: false
         UIApplicationSceneManifest:
@@ -48,6 +56,7 @@ targets:
         # Must match the live App Store record ("Sunny-Side", Apple ID 6749254551)
         PRODUCT_BUNDLE_IDENTIFIER: com.didisd.SunnySideApp
         INFOPLIST_FILE: Sunnyside/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
 
   SunnysideTests:
     type: bundle.unit-test

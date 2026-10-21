@@ -47,6 +47,8 @@ struct ResultView: View {
                 .padding(.horizontal, AppTheme.screenGutter)
                 .padding(.top, 8)
                 .padding(.bottom, 40)
+                .frame(maxWidth: AppTheme.maxContentWidth)
+                .frame(maxWidth: .infinity)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
